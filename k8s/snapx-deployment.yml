@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: snapx
+ labels:
+  app: snapx
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: snapx
+ template:
+   metadata:
+     labels:
+       app: snapx
+   spec: 
+      containers:
+       - name: snapx
+         image: bakhtawar375/snapx:latest
+         ports:
+         - containerPort: 5000

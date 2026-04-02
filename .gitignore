@@ -1,0 +1,5 @@
+# Files not to track
+iac  
+iac.pub    
+terraform.tfstate  
+terraform.tfstate.backup

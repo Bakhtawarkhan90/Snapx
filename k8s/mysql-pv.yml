@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: mysql-pv
+spec:
+ capacity:
+   storage: 100Mi
+ volumeMode: Filesystem
+ accessModes:
+  - ReadWriteOnce
+ persistentVolumeReclaimPolicy: Retain
+ hostPath:
+
+   path: /home/jeremy/snapx/mysqldata 
+
+   path: /home/jeremy/snapx/mysqldata

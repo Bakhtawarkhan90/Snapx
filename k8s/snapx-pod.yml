@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: snapx
+ labels:
+  app: snapx
+
+spec:
+  containers:
+   - name: snapx
+     image: bakhtawar375/snapx:latest
+     ports:
+       - containerPort: 5000
+     imagePullPolicy: Always

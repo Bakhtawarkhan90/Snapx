@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: database
+          image: mysql:latest
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "kali"
+            - name: MYSQL_DATABASE
+              value: "table"
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysqldata
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysqldata
+          persistentVolumeClaim:
+            claimName: mysql-pvc
